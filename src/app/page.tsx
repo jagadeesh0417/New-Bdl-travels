@@ -5,6 +5,7 @@ import HeroSlider from "@/components/HeroSlider";
 import TrustSection from "@/components/TrustSection";
 import GallerySection from "@/components/GallerySection";
 import VehicleProduct from "@/components/VehicleProduct";
+import VehiclePricing from "@/components/VehiclePricing";
 import HowWeWork from "@/components/HowWeWork";
 import VideoSection from "@/components/VideoSection";
 import ContactSection from "@/components/ContactSection";
@@ -69,6 +70,8 @@ export default function Home() {
         ]}
         whatsappMessage="Hi BDL Travels! I am interested to know more about your Luxury Buses."
       />
+
+      <VehiclePricing />
 
       <HowWeWork />
       <VideoSection />
