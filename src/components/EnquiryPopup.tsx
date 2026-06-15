@@ -1,28 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { whatsappNumber } from "@/lib/utils";
 
 export default function EnquiryPopup() {
-  const [mounted, setMounted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", vehicle: "", message: "" });
 
-  useEffect(() => {
-    setMounted(true);
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     const msg = `Hi BDL Travels! I'm ${form.name}. I'm interested in ${form.vehicle}. ${form.message}. Contact: ${form.phone}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, "_blank");
     setSubmitted(true);
-    document.body.style.overflow = "";
-  };
+  }, [form]);
 
-  if (!mounted || submitted) return null;
+  if (submitted) return null;
 
   return (
     <div style={{
