@@ -46,7 +46,7 @@ export default function Footer() {
             <a href="#" aria-label="Facebook"><FaFacebook /></a>
             <a href="#" aria-label="Twitter"><FaTwitter /></a>
             <a href="#" aria-label="Google Plus"><FaGooglePlusG /></a>
-            <a href="https://wa.me/919123456789" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href="https://wa.me/919391546277" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
         </div>
       </div>

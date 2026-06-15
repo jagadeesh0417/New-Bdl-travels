@@ -29,6 +29,6 @@ export const whatsappLink = (phone: string, message: string) => {
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 };
 
-export const phoneNumber = "+919123456789";
+export const phoneNumber = "+919391546277";
 export const emailAddress = "info@bdl-travels.com";
-export const whatsappNumber = "919123456789";
+export const whatsappNumber = "919391546277";
