@@ -107,13 +107,13 @@ const vehicles = [
 export default function VehiclePricing() {
   return (
     <section style={{
-      padding: "60px 20px",
+      padding: "40px 12px",
       background: "#F8F9FC",
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+        <div style={{ textAlign: "center", marginBottom: "28px" }}>
           <h2 style={{
-            fontSize: "28px",
+            fontSize: "24px",
             fontWeight: 700,
             color: "#0A4DFF",
             margin: "0 0 8px",
