@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <EnquiryPopup />
       <Navbar />
       <HeroSlider />
 
@@ -69,7 +70,6 @@ export default function Home() {
 
       <HowWeWork />
       <VideoSection />
-      <EnquiryPopup />
       <WhatsAppFloat />
       <Footer />
     </>
