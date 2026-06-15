@@ -40,8 +40,33 @@ export default function EnquiryPopup() {
         width: "100%",
         maxWidth: "440px",
         boxShadow: "0 25px 50px rgba(0,0,0,0.25)",
+        position: "relative",
       }}>
         <form onSubmit={handleSubmit}>
+          <button
+            type="button"
+            onClick={() => setShow(false)}
+            style={{
+              position: "absolute",
+              top: "12px",
+              right: "12px",
+              background: "#F3F4F6",
+              border: "none",
+              borderRadius: "50%",
+              width: 32,
+              height: 32,
+              fontSize: "16px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#6B7280",
+              lineHeight: 1,
+            }}
+            aria-label="Skip"
+          >
+            ✕
+          </button>
           <div style={{ textAlign: "center", marginBottom: "24px" }}>
             <div style={{
               width: 64, height: 64,
@@ -60,7 +85,7 @@ export default function EnquiryPopup() {
               Quick Enquiry
             </h3>
             <p style={{ color: "#6B7280", fontSize: "14px", marginTop: "4px" }}>
-              Fill this form to continue browsing
+              Tell us your requirements — or skip and browse freely
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -122,6 +147,23 @@ export default function EnquiryPopup() {
             >
               Submit Enquiry
             </button>
+            <div style={{ textAlign: "center", marginTop: "12px" }}>
+              <button
+                type="button"
+                onClick={() => setShow(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "#9CA3AF",
+                  fontSize: "13px",
+                  cursor: "pointer",
+                  textDecoration: "underline",
+                  padding: 0,
+                }}
+              >
+                Skip and browse the site
+              </button>
+            </div>
           </div>
         </form>
       </div>
