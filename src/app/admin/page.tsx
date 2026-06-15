@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { HiShieldCheck } from "react-icons/hi";
 
 export default function AdminLogin() {
@@ -20,11 +19,7 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-[#F5F7FA] flex items-center justify-center p-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-3xl p-8 shadow-premium max-w-md w-full"
-      >
+      <div className="bg-white rounded-3xl p-8 shadow-premium max-w-md w-full animate-fade-in">
         <div className="text-center mb-8">
           <div className="w-16 h-16 rounded-full bg-[#0A4DFF]/10 flex items-center justify-center mx-auto mb-4">
             <HiShieldCheck size={32} className="text-[#0A4DFF]" />
@@ -56,7 +51,7 @@ export default function AdminLogin() {
             Sign In
           </button>
         </form>
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -128,14 +123,10 @@ function AdminDashboard() {
         )}
 
         {activeTab !== "overview" && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl p-8 shadow-sm text-center"
-          >
+          <div className="bg-white rounded-2xl p-8 shadow-sm text-center animate-fade-in">
             <div className="text-gray-400 text-lg mb-2">{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Management</div>
             <p className="text-gray-400 text-sm">Manage your {activeTab} here. Add, edit, or delete entries.</p>
-          </motion.div>
+          </div>
         )}
       </div>
     </div>

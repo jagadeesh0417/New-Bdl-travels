@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Swiper from "swiper";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -27,18 +25,30 @@ const slides = [
 
 export default function HeroSlider() {
   const swiperRef = useRef<HTMLDivElement>(null);
+  const initialized = useRef(false);
 
   useEffect(() => {
-    if (!swiperRef.current) return;
-    const swiper = new Swiper(swiperRef.current, {
-      modules: [Navigation, Pagination, Autoplay],
-      loop: true,
-      speed: 1000,
-      autoplay: { delay: 5000, disableOnInteraction: false },
-      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-      pagination: { el: ".swiper-pagination", clickable: true },
-    });
-    return () => swiper.destroy();
+    if (initialized.current || !swiperRef.current) return;
+    initialized.current = true;
+
+    const initSwiper = async () => {
+      const Swiper = (await import("swiper")).default;
+      const { Navigation, Pagination, Autoplay } = await import("swiper/modules");
+
+      new Swiper(swiperRef.current!, {
+        modules: [Navigation, Pagination, Autoplay],
+        loop: true,
+        speed: 1000,
+        autoplay: { delay: 5000, disableOnInteraction: false },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: { el: ".swiper-pagination", clickable: true },
+      });
+    };
+
+    initSwiper();
   }, []);
 
   return (
