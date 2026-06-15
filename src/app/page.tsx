@@ -1,65 +1,77 @@
-import Image from "next/image";
+"use client";
+
+import Navbar from "@/components/Navbar";
+import HeroSlider from "@/components/HeroSlider";
+import TrustSection from "@/components/TrustSection";
+import GallerySection from "@/components/GallerySection";
+import VehicleProduct from "@/components/VehicleProduct";
+import HowWeWork from "@/components/HowWeWork";
+import VideoSection from "@/components/VideoSection";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+import EnquiryPopup from "@/components/EnquiryPopup";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Navbar />
+      <HeroSlider />
+
+      <TrustSection />
+
+      <GallerySection />
+
+      {/* Vehicle Products */}
+      <div id="services">
+        <VehicleProduct
+          title="Premium Cars"
+          subtitle="Luxury Sedans & SUVs for Executive Travel"
+          description="Experience unparalleled comfort with our premium car fleet. From luxury sedans to spacious SUVs, every vehicle is meticulously maintained with plush interiors, climate control, and professional chauffeurs. Perfect for business travel, airport transfers, and special occasions."
+          mainImage="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80"
+          thumbnails={[
+            "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=200&q=80",
+            "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=200&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=200&q=80",
+            "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=200&q=80",
+          ]}
+          whatsappMessage="Hi BDL Travels! I am interested to know more about your Premium Cars."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+
+      <VehicleProduct
+        title="Tempo Traveller"
+        subtitle="Spacious Group Travel with Comfort"
+        description="Our Tempo Travellers are the perfect choice for group outings, family trips, and corporate events. With 12 to 18 seats, push-back recliners, ample legroom, and entertainment systems, your journey will be as enjoyable as the destination. Air-conditioned and driven by experienced professionals."
+        mainImage="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80"
+        thumbnails={[
+          "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=200&q=80",
+          "https://images.unsplash.com/photo-1567818735868-e71b99932e29?w=200&q=80",
+          "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=200&q=80",
+          "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=200&q=80",
+        ]}
+        whatsappMessage="Hi BDL Travels! I am interested to know more about your Tempo Traveller."
+        altBg
+      />
+
+      <VehicleProduct
+        title="Luxury Buses"
+        subtitle="Premium Coaches for Large Groups & Events"
+        description="Our luxury bus fleet includes well-maintained sleeper and semi-sleeper coaches ideal for long-distance travel, wedding transport, and corporate off-sites. Features include push-back seats, onboard entertainment, reading lights, charging points, and strict adherence to safety standards."
+        mainImage="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800&q=80"
+        thumbnails={[
+          "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=200&q=80",
+          "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=200&q=80",
+          "https://images.unsplash.com/photo-1567818735868-e71b99932e29?w=200&q=80",
+          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=200&q=80",
+        ]}
+        whatsappMessage="Hi BDL Travels! I am interested to know more about your Luxury Buses."
+      />
+
+      <HowWeWork />
+      <VideoSection />
+      <EnquiryPopup />
+      <WhatsAppFloat />
+      <Footer />
+    </>
   );
 }
