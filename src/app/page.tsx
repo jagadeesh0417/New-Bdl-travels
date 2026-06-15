@@ -11,6 +11,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import EnquiryPopup from "@/components/EnquiryPopup";
 import Footer from "@/components/Footer";
 
+/* BDL Travels - Premium Vehicle Booking - Nandyal */
 export default function Home() {
   return (
     <>
