@@ -1,7 +1,7 @@
 "use client";
 
 import { FaFacebook, FaTwitter, FaGooglePlusG, FaWhatsapp } from "react-icons/fa";
-import { scrollToSection } from "@/lib/utils";
+import { scrollToSection, whatsappNumber } from "@/lib/utils";
 
 export default function Footer() {
   return (
@@ -49,7 +49,7 @@ export default function Footer() {
             <a href="#" aria-label="Facebook"><FaFacebook /></a>
             <a href="#" aria-label="Twitter"><FaTwitter /></a>
             <a href="#" aria-label="Google Plus"><FaGooglePlusG /></a>
-            <a href="https://wa.me/918985651501" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href={`https://wa.me/${whatsappNumber}`} aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
         </div>
       </div>

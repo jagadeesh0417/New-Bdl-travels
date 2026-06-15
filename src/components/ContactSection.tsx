@@ -1,6 +1,6 @@
 "use client";
 
-import { phoneNumber, emailAddress } from "@/lib/utils";
+import { phoneNumber, emailAddress, whatsappNumber } from "@/lib/utils";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 
 export default function ContactSection() {
@@ -67,7 +67,7 @@ export default function ContactSection() {
                 </div>
               </div>
               <a
-                href={`https://wa.me/${"918985651501"}?text=Hi%20BDL%20Travels!`}
+                href={`https://wa.me/${whatsappNumber}?text=Hi%20BDL%20Travels!`}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

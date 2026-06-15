@@ -1,9 +1,11 @@
 "use client";
 
+import { whatsappNumber } from "@/lib/utils";
+
 export default function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/918985651501?text=Hi%20BDL%20Travels!%20I%20want%20to%20know%20more%20about%20your%20services."
+      href={`https://wa.me/${whatsappNumber}?text=Hi%20BDL%20Travels!%20I%20want%20to%20know%20more%20about%20your%20services.`}
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"

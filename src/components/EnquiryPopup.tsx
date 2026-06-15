@@ -1,11 +1,17 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { whatsappNumber } from "@/lib/utils";
 
 export default function EnquiryPopup() {
+  const [show, setShow] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", vehicle: "", message: "" });
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShow(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
@@ -14,7 +20,7 @@ export default function EnquiryPopup() {
     setSubmitted(true);
   }, [form]);
 
-  if (submitted) return null;
+  if (submitted || !show) return null;
 
   return (
     <div style={{
