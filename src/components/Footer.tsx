@@ -42,11 +42,14 @@ export default function Footer() {
             <span>BDL</span>
           </div>
           <p>&ldquo;Travel Beyond Limits&rdquo;</p>
+          <p style={{ fontSize: "12px", opacity: 0.7, marginTop: "4px" }}>
+            Nandyal, Andhra Pradesh &ndash; 518502
+          </p>
           <div className="footer-socials">
             <a href="#" aria-label="Facebook"><FaFacebook /></a>
             <a href="#" aria-label="Twitter"><FaTwitter /></a>
             <a href="#" aria-label="Google Plus"><FaGooglePlusG /></a>
-            <a href="https://wa.me/919391546277" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href="https://wa.me/918985651501" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
         </div>
       </div>

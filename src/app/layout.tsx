@@ -57,21 +57,28 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
-                {
-                  "@type": "Organization",
-                  name: "BDL Travels",
-                  url: "https://bdl-travels.vercel.app",
-                  logo: "https://bdl-travels.vercel.app/logo.png",
-                  contactPoint: [
-                    {
-                      "@type": "ContactPoint",
-                      telephone: "+919391546277",
-                      contactType: "customer service",
-                      areaServed: "IN",
-                      availableLanguage: "English",
+                  {
+                    "@type": "Organization",
+                    name: "BDL Travels",
+                    url: "https://bdl-travels.vercel.app",
+                    logo: "https://bdl-travels.vercel.app/logo.png",
+                    address: {
+                      "@type": "PostalAddress",
+                      addressLocality: "Nandyal",
+                      addressRegion: "Andhra Pradesh",
+                      postalCode: "518502",
+                      addressCountry: "IN",
                     },
-                  ],
-                },
+                    contactPoint: [
+                      {
+                        "@type": "ContactPoint",
+                        telephone: "+918985651501",
+                        contactType: "customer service",
+                        areaServed: "IN",
+                        availableLanguage: "English",
+                      },
+                    ],
+                  },
               ],
             }),
           }}
