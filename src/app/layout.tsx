@@ -64,9 +64,10 @@ export default function RootLayout({
                     logo: "https://bdl-travels.vercel.app/logo.png",
                     address: {
                       "@type": "PostalAddress",
-                      addressLocality: "Nandyal",
+                      streetAddress: "Shop no:4, Ground floor, Ananda Nilayam Plaza",
+                      addressLocality: "Nandyala",
                       addressRegion: "Andhra Pradesh",
-                      postalCode: "518502",
+                      postalCode: "518501",
                       addressCountry: "IN",
                     },
                     contactPoint: [

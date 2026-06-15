@@ -7,6 +7,7 @@ import GallerySection from "@/components/GallerySection";
 import VehicleProduct from "@/components/VehicleProduct";
 import HowWeWork from "@/components/HowWeWork";
 import VideoSection from "@/components/VideoSection";
+import ContactSection from "@/components/ContactSection";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import EnquiryPopup from "@/components/EnquiryPopup";
 import Footer from "@/components/Footer";
@@ -71,6 +72,7 @@ export default function Home() {
 
       <HowWeWork />
       <VideoSection />
+      <ContactSection />
       <WhatsAppFloat />
       <Footer />
     </>

@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
           <p>&ldquo;Travel Beyond Limits&rdquo;</p>
           <p style={{ fontSize: "12px", opacity: 0.7, marginTop: "4px" }}>
-            Nandyal, Andhra Pradesh &ndash; 518502
+            Shop no:4, Ground floor, Ananda Nilayam Plaza, Nandyala, AP &ndash; 518501
           </p>
           <div className="footer-socials">
             <a href="#" aria-label="Facebook"><FaFacebook /></a>
