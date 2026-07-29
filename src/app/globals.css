@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #0A4DFF;
-  --primary-dark: #0940D4;
-  --gold: #D4A017;
-  --gold-light: #F0C75E;
+  --primary: #0F2B46;
+  --primary-dark: #0A1F33;
+  --primary-light: #1A3F5E;
+  --gold: #C8922E;
+  --gold-light: #E0AD4F;
   --white: #FFFFFF;
-  --bg-light: #F8F9FC;
+  --bg-light: #F5F3EF;
   --bg-dark: #0F172A;
-  --text-dark: #111827;
+  --text-dark: #1A1A2E;
   --text-muted: #6B7280;
   --text-light: #9CA3AF;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-  --shadow-md: 0 8px 30px rgba(0,0,0,0.1);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+  --shadow-sm: 0 2px 8px rgba(15,43,70,0.06);
+  --shadow-md: 0 8px 30px rgba(15,43,70,0.1);
+  --shadow-lg: 0 20px 60px rgba(15,43,70,0.15);
   --radius-sm: 12px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -77,11 +78,11 @@ body {
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(10,77,255,0.3);
+  box-shadow: 0 4px 15px rgba(15,43,70,0.3);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(10,77,255,0.4);
+  box-shadow: 0 8px 25px rgba(15,43,70,0.4);
 }
 
 .btn-gold {
@@ -98,11 +99,11 @@ body {
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(212,160,23,0.3);
+  box-shadow: 0 4px 15px rgba(200,146,46,0.3);
 }
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(212,160,23,0.4);
+  box-shadow: 0 8px 25px rgba(200,146,46,0.4);
 }
 
 .btn-outline {
