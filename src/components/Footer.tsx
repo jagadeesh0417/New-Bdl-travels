@@ -73,17 +73,6 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#D4A017", marginBottom: "16px" }}>Services</h3>
-            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
-              {["Holiday Packages", "Car Rentals", "Bus Rentals", "Corporate Tours", "Family Tours", "Honeymoon Packages"].map((item) => (
-                <li key={item}>
-                  <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.85rem" }}>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
             <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#D4A017", marginBottom: "16px" }}>Contact Info</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.85rem" }}>
               <div style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
