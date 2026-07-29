@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="footer-bdl-container">
         <div className="footer-bdl-about">
           <p>
-            BDL Travels is Nandyal&apos;s premier travel agency, offering a premium fleet of vehicles
+            BDL Travels is Bangalore&apos;s premier travel agency, offering a premium fleet of vehicles
             for trips, tours, and corporate travel. We prioritize safety, comfort, and punctuality
             in every journey.
           </p>
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
           <p>&ldquo;Travel Beyond Limits&rdquo;</p>
           <p style={{ fontSize: "12px", opacity: 0.7, marginTop: "4px" }}>
-            Shop no:4, Ground floor, Ananda Nilayam Plaza, Nandyala, AP &ndash; 518501
+            Yelhanka, Bangalore &ndash; 560064
           </p>
           <div className="footer-socials">
             <a href="#" aria-label="Facebook"><FaFacebook /></a>

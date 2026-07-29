@@ -2,6 +2,7 @@
 
 import { FaWhatsapp, FaRupeeSign } from "react-icons/fa";
 import { whatsappNumber } from "@/lib/utils";
+import RazorpayButton from "@/components/RazorpayButton";
 
 const vehicles = [
   {
@@ -206,24 +207,26 @@ export default function VehiclePricing() {
 
                 <div style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  gap: "2px",
+                  marginBottom: "10px",
+                }}>
+                  <FaRupeeSign size={12} color="#059669" />
+                  <span style={{
+                    fontSize: "20px",
+                    fontWeight: 800,
+                    color: "#059669",
+                  }}>
+                    {v.price}
+                  </span>
+                </div>
+
+                <div style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "6px",
                   alignItems: "center",
                 }}>
-                  <div style={{
-                    display: "flex",
-                    alignItems: "baseline",
-                    gap: "2px",
-                  }}>
-                    <FaRupeeSign size={12} color="#059669" />
-                    <span style={{
-                      fontSize: "20px",
-                      fontWeight: 800,
-                      color: "#059669",
-                    }}>
-                      {v.price}
-                    </span>
-                  </div>
-
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi BDL Travels! I am interested in booking ${v.name} (${v.category}) at ${v.price}. Please share availability and payment details.`)}`}
                     target="_blank"
@@ -246,6 +249,7 @@ export default function VehiclePricing() {
                     <FaWhatsapp size={16} />
                     Book Now
                   </a>
+                  <RazorpayButton vehicle={v.name} price={v.price} category={v.category} />
                 </div>
               </div>
             </div>

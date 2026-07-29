@@ -47,8 +47,7 @@ export default function ContactSection() {
                 <div>
                   <p style={{ margin: 0, fontWeight: 600, fontSize: "14px" }}>Address</p>
                   <p style={{ margin: "2px 0 0", color: "#6B7280", fontSize: "14px" }}>
-                    Shop no:4, Ground floor, Ananda Nilayam Plaza,<br />
-                    Complex, Nandyala, Andhra Pradesh 518501
+                    Yelhanka, Bangalore &ndash; 560064
                   </p>
                 </div>
               </div>
@@ -96,7 +95,7 @@ export default function ContactSection() {
             boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
           }}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d78.483!3d15.478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDI4JzQwLjgiTiA3OMKwMjknMDAuMCJF!5e0!3m2!1sen!2sin!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d77.5963!3d13.1007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA2JzAyLjUiTiA3N8KwMzUnNDYuNyJF!5e0!3m2!1sen!2sin!4v1"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "320px" }}
