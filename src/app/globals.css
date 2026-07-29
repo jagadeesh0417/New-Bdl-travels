@@ -189,8 +189,8 @@ body {
 /* ===== HERO ===== */
 .hero-section {
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  width: 100%;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -561,12 +561,14 @@ body {
 /* ===== PAGE BANNER ===== */
 .page-banner {
   position: relative;
-  height: 50vh;
-  min-height: 350px;
+  width: 100%;
+  min-height: 50dvh;
+  max-height: 80dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
 }
 .page-banner::before {
   content: "";
@@ -599,7 +601,7 @@ body {
   opacity: 0.85;
 }
 @media (max-width: 768px) {
-  .page-banner { height: 40vh; min-height: 280px; }
+  .page-banner { min-height: 35dvh; aspect-ratio: 4 / 3; }
   .page-banner-content h1 { font-size: 1.8rem; }
 }
 

@@ -34,7 +34,7 @@ export default function TripDetail() {
     <>
       <Navbar />
 
-      <section className="page-banner" style={{ height: "60vh", minHeight: "400px" }}>
+      <section className="page-banner" style={{ aspectRatio: "21 / 9", minHeight: "400px" }}>
         <img src={trip.img} alt={trip.title} />
         <div className="page-banner-content">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>{trip.title}</motion.h1>
