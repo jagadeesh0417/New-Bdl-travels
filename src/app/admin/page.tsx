@@ -25,7 +25,7 @@ export default function AdminLogin() {
             <HiShieldCheck size={32} className="text-[#0A4DFF]" />
           </div>
           <h1 className="text-2xl font-bold text-[#111827]">Admin Login</h1>
-          <p className="text-gray-500 text-sm mt-1">BDL Travels Management</p>
+          <p className="text-gray-500 text-sm mt-1">AKRADHI Travels Management</p>
         </div>
         <form onSubmit={handleLogin} className="space-y-4">
           <input
