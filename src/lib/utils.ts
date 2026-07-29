@@ -29,6 +29,16 @@ export const whatsappLink = (phone: string, message: string) => {
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 };
 
+export const siteName = "AKRADHI Travels";
 export const phoneNumber = "+919848579053";
-export const emailAddress = "info@bdl-travels.com";
+export const emailAddress = "info@akradhitravels.com";
 export const whatsappNumber = "919848579053";
+export const address = "Yelhanka, Bangalore – 560064";
+export const businessHours = "Mon – Sat: 9:00 AM – 8:00 PM";
+export const socialLinks = {
+  facebook: "#",
+  instagram: "#",
+  youtube: "#",
+  whatsapp: `https://wa.me/919848579053`,
+  googleMaps: "#",
+};

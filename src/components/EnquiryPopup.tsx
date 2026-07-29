@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { whatsappNumber } from "@/lib/utils";
+import { whatsappNumber, siteName } from "@/lib/utils";
 
 export default function EnquiryPopup() {
   const [show, setShow] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", vehicle: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", destination: "", message: "" });
 
   useEffect(() => {
     const timer = setTimeout(() => setShow(true), 5000);
@@ -15,7 +15,7 @@ export default function EnquiryPopup() {
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `Hi BDL Travels! I'm ${form.name}. I'm interested in ${form.vehicle}. ${form.message}. Contact: ${form.phone}`;
+    const msg = `Hi ${siteName}! I'm ${form.name}. Interested in ${form.destination}. ${form.message}. Contact: ${form.phone}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, "_blank");
     setSubmitted(true);
   }, [form]);
@@ -23,54 +23,37 @@ export default function EnquiryPopup() {
   if (submitted || !show) return null;
 
   return (
-    <div style={{
-      position: "fixed",
-      inset: 0,
-      zIndex: 99999,
-      background: "rgba(0,0,0,0.6)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "16px",
-    }}>
-      <div style={{
-        background: "white",
-        borderRadius: "16px",
-        padding: "32px",
-        width: "100%",
-        maxWidth: "440px",
-        boxShadow: "0 25px 50px rgba(0,0,0,0.25)",
-        position: "relative",
-      }}>
+    <div className="enquiry-overlay">
+      <div className="enquiry-modal">
+        <button
+          type="button"
+          onClick={() => setShow(false)}
+          style={{
+            position: "absolute",
+            top: "12px",
+            right: "12px",
+            background: "#F3F4F6",
+            border: "none",
+            borderRadius: "50%",
+            width: 32,
+            height: 32,
+            fontSize: "16px",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#6B7280",
+            lineHeight: 1,
+          }}
+          aria-label="Skip"
+        >
+          ✕
+        </button>
         <form onSubmit={handleSubmit}>
-          <button
-            type="button"
-            onClick={() => setShow(false)}
-            style={{
-              position: "absolute",
-              top: "12px",
-              right: "12px",
-              background: "#F3F4F6",
-              border: "none",
-              borderRadius: "50%",
-              width: 32,
-              height: 32,
-              fontSize: "16px",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#6B7280",
-              lineHeight: 1,
-            }}
-            aria-label="Skip"
-          >
-            ✕
-          </button>
           <div style={{ textAlign: "center", marginBottom: "24px" }}>
             <div style={{
               width: 64, height: 64,
-              background: "#0A4DFF10",
+              background: "linear-gradient(135deg, #0A4DFF10, #D4A01710)",
               borderRadius: "50%",
               display: "flex",
               alignItems: "center",
@@ -85,81 +68,42 @@ export default function EnquiryPopup() {
               Quick Enquiry
             </h3>
             <p style={{ color: "#6B7280", fontSize: "14px", marginTop: "4px" }}>
-              Tell us your requirements — or skip and browse freely
+              Tell us your travel plans — or skip and browse freely
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <input
-              type="text"
-              placeholder="Your Name"
-              required
+              type="text" placeholder="Your Name" required
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              style={{
-                width: "100%", padding: "14px", borderRadius: "12px",
-                border: "1px solid #E5E7EB", fontSize: "14px", outline: "none",
-                boxSizing: "border-box",
-              }}
+              style={{ width: "100%", padding: "14px", borderRadius: "12px", border: "1px solid #E5E7EB", fontSize: "14px", outline: "none", boxSizing: "border-box" }}
             />
             <input
-              type="tel"
-              placeholder="Contact Number"
-              required
+              type="tel" placeholder="Contact Number" required
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              style={{
-                width: "100%", padding: "14px", borderRadius: "12px",
-                border: "1px solid #E5E7EB", fontSize: "14px", outline: "none",
-                boxSizing: "border-box",
-              }}
+              style={{ width: "100%", padding: "14px", borderRadius: "12px", border: "1px solid #E5E7EB", fontSize: "14px", outline: "none", boxSizing: "border-box" }}
             />
             <input
-              type="text"
-              placeholder="Vehicle Type (e.g., Car, Bus)"
-              required
-              value={form.vehicle}
-              onChange={(e) => setForm({ ...form, vehicle: e.target.value })}
-              style={{
-                width: "100%", padding: "14px", borderRadius: "12px",
-                border: "1px solid #E5E7EB", fontSize: "14px", outline: "none",
-                boxSizing: "border-box",
-              }}
+              type="text" placeholder="Destination (e.g., Goa, Kerala)"
+              value={form.destination}
+              onChange={(e) => setForm({ ...form, destination: e.target.value })}
+              style={{ width: "100%", padding: "14px", borderRadius: "12px", border: "1px solid #E5E7EB", fontSize: "14px", outline: "none", boxSizing: "border-box" }}
             />
             <textarea
-              rows={3}
-              placeholder="Your Message"
-              required
+              rows={3} placeholder="Your Message"
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              style={{
-                width: "100%", padding: "14px", borderRadius: "12px",
-                border: "1px solid #E5E7EB", fontSize: "14px", outline: "none",
-                resize: "none", boxSizing: "border-box",
-              }}
+              style={{ width: "100%", padding: "14px", borderRadius: "12px", border: "1px solid #E5E7EB", fontSize: "14px", outline: "none", resize: "none", boxSizing: "border-box" }}
             />
-            <button
-              type="submit"
-              style={{
-                width: "100%", padding: "14px", background: "#0A4DFF",
-                color: "white", fontSize: "15px", fontWeight: 600,
-                border: "none", borderRadius: "12px", cursor: "pointer",
-              }}
-            >
+            <button type="submit" className="btn-primary" style={{ justifyContent: "center", width: "100%" }}>
               Submit Enquiry
             </button>
-            <div style={{ textAlign: "center", marginTop: "12px" }}>
+            <div style={{ textAlign: "center" }}>
               <button
                 type="button"
                 onClick={() => setShow(false)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "#9CA3AF",
-                  fontSize: "13px",
-                  cursor: "pointer",
-                  textDecoration: "underline",
-                  padding: 0,
-                }}
+                style={{ background: "none", border: "none", color: "#9CA3AF", fontSize: "13px", cursor: "pointer", textDecoration: "underline", padding: 0 }}
               >
                 Skip and browse the site
               </button>

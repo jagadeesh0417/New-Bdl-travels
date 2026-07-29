@@ -1,89 +1,171 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { scrollToSection } from "@/lib/utils";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FaBars, FaTimes, FaPhone } from "react-icons/fa";
+import { siteName, phoneNumber } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Home", href: "hero" },
-  { label: "About", href: "about" },
-  { label: "Gallery", href: "gallery" },
-  { label: "Services", href: "services" },
-  { label: "Contact", href: "contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Trips", href: "/trips" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 600);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <header
-      className={`header ${
-        scrolled ? "header-scrolled" : "header-transparent"
-      }`}
-    >
-      <div className="header-container">
-        <div className="header-inner">
-          <button onClick={() => scrollToSection("hero")} className="flex items-center gap-2">
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-              <span className="text-[#0A4DFF] font-bold text-lg">BDL</span>
-            </div>
-          </button>
+  const showSolid = !isHome || scrolled;
 
-          <nav className="hidden lg:flex items-center gap-8">
+  return (
+    <nav
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 9999,
+        padding: showSolid ? "10px 0" : "20px 0",
+        transition: "all 0.3s ease",
+        background: showSolid
+          ? "rgba(10,77,255,0.95)"
+          : "transparent",
+        backdropFilter: showSolid ? "blur(12px)" : "none",
+        WebkitBackdropFilter: showSolid ? "blur(12px)" : "none",
+        borderBottom: showSolid ? "1px solid rgba(255,255,255,0.1)" : "none",
+      }}
+    >
+      <div style={{
+        maxWidth: 1200,
+        margin: "0 auto",
+        padding: "0 20px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}>
+        <Link href="/" style={{
+          textDecoration: "none",
+          color: "white",
+          fontSize: "1.4rem",
+          fontWeight: 800,
+          letterSpacing: "-0.5px",
+        }}>
+          {siteName}
+        </Link>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+          <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="nav-link text-sm tracking-wider"
+                href={link.href}
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+                  fontSize: "0.9rem",
+                  fontWeight: 500,
+                  opacity: pathname === link.href ? 1 : 0.8,
+                  borderBottom: pathname === link.href ? "2px solid #D4A017" : "2px solid transparent",
+                  paddingBottom: "2px",
+                  transition: "all 0.3s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = pathname === link.href ? "1" : "0.8"; }}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
-          </nav>
+          </div>
+
+          <a
+            href={`tel:${phoneNumber}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              background: "rgba(255,255,255,0.15)",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "50px",
+              textDecoration: "none",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+              border: "1px solid rgba(255,255,255,0.2)",
+              transition: "all 0.3s",
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.25)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; }}
+          >
+            <FaPhone size={14} />
+            {phoneNumber}
+          </a>
 
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-white text-3xl bg-none border-none cursor-pointer"
+            onClick={() => setOpen(!open)}
+            style={{
+              background: "none",
+              border: "none",
+              color: "white",
+              fontSize: "1.4rem",
+              cursor: "pointer",
+              display: "none",
+            }}
+            className="mobile-menu-btn"
           >
-            &#9776;
+            {open ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </div>
 
-      <div
-        className={`fixed inset-0 bg-[#0A4DFF] z-40 ${
-          mobileOpen ? "block" : "hidden"
-        }`}
-      >
-        <div className="relative p-4">
-          <button
-            onClick={() => setMobileOpen(false)}
-            className="fixed top-4 right-4 text-white text-3xl bg-none border-none cursor-pointer z-50"
-          >
-            &times;
-          </button>
-        </div>
-        <nav className="flex flex-col items-center pt-20">
+      {open && (
+        <div
+          style={{
+            background: "rgba(10,77,255,0.98)",
+            backdropFilter: "blur(12px)",
+            padding: "16px 20px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+          }}
+        >
           {navLinks.map((link) => (
-            <button
+            <Link
               key={link.href}
-              onClick={() => {
-                scrollToSection(link.href);
-                setMobileOpen(false);
+              href={link.href}
+              onClick={() => setOpen(false)}
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "1rem",
+                fontWeight: 500,
+                opacity: pathname === link.href ? 1 : 0.8,
               }}
-              className="w-full py-4 text-xl font-bold text-center text-white hover:bg-blue-400 transition"
             >
               {link.label}
-            </button>
+            </Link>
           ))}
-        </nav>
-      </div>
-    </header>
+        </div>
+      )}
+
+      <style>{`
+        @media (max-width: 768px) {
+          .mobile-menu-btn { display: block !important; }
+          nav > div > div > div:first-child { display: none !important; }
+          nav > div > div > a { display: none !important; }
+        }
+      `}</style>
+    </nav>
   );
 }
